@@ -42,15 +42,15 @@ public class BinaryTree {
     }
 
     public String searchString(String word, String[] words) {
-        return searchRec(root, words)[1];
+        return searchRec(root, words);
     }
 
-    private String[] searchRec(Nodo root, String[] words) {
+    private String searchRec(Nodo root, String[] words) {
         if (root == null) {
             return null;
         }
         if (root.getWords()[0].equals(words[0])) {
-            return root.getWords();
+            return root.getWords()[1];
         }
         if (words[0].compareTo(root.getWords()[0]) < 0) {
             return searchRec(root.left, words);
