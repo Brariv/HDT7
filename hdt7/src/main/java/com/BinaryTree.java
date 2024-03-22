@@ -41,21 +41,23 @@ public class BinaryTree {
         }
     }
 
-    public String searchString(String word, String[] words) {
-        return searchRec(root, words);
+    public String[] searchString(String word) {
+        return searchRec(root, word);
     }
 
-    private String searchRec(Nodo root, String[] words) {
+    private String[] searchRec(Nodo root, String word) {
         if (root == null) {
-            return null;
+            String Nada = "*"+word+"*";
+            String[] NA = {word, Nada};
+            return NA;
         }
-        if (root.getWords()[0].equals(words[0])) {
-            return root.getWords()[1];
+        if (root.getWords()[0].equals(word)) {
+            return root.getWords();
         }
-        if (words[0].compareTo(root.getWords()[0]) < 0) {
-            return searchRec(root.left, words);
+        if (word.compareTo(root.getWords()[0]) < 0) {
+            return searchRec(root.left, word);
         }
-        return searchRec(root.right, words);
+        return searchRec(root.right, word);
     }
 
     
