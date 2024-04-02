@@ -35,11 +35,15 @@ public class MenuUi {
                 case 1:
                     System.out.println("Ingresar path del archivo de texto:");
                     String path2 = scanner.nextLine();
+                    path2 = scanner.nextLine();
+                    path2 = path2.replaceAll("\"", "");
                     ArrayList<String> file = reader.readTxTFile(path2);
                     String resultado = "";
                     for (String word : file) {
                         resultado = resultado + association.searchWord(word, tree);
+                        resultado = resultado + " ";
                     }
+                    System.out.println(resultado);
                     break;
                 case 2:
                     System.out.println("Ingresar palabra en inglés:");
@@ -47,7 +51,7 @@ public class MenuUi {
                     english = scanner.nextLine();
                     System.out.println("Ingresar traduccion en español:");
                     String spanish = scanner.nextLine();
-                    association.manualAssociation(english, spanish, tree);
+                    association.manualAssociation(english.toLowerCase(), spanish.toLowerCase(), tree);
                     break;
                 case 3:
                     System.out.println("Ingresar palabra en inglés:");

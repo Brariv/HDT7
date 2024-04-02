@@ -33,6 +33,12 @@ public class JunitTest {
         assertEquals("hola", tree.searchString("hello")[1]);
     }
 
+    @Test 
+    public void testSearchWord() {
+        association.manualAssociation("hello", "hola", tree);
+        assertEquals("hola", association.searchWord("hello", tree));
+    }
+
 
 
 }
